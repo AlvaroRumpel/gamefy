@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gamefy/components/custom_textfield.dart';
 import 'package:gamefy/utils/app_colors.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,6 +9,14 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        image: DecorationImage(
+          image: const AssetImage('assets/background_image.jfif'),
+          fit: BoxFit.fill,
+          colorFilter: ColorFilter.mode(
+            Colors.white.withOpacity(0.15),
+            BlendMode.modulate,
+          ),
+        ),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -35,41 +44,61 @@ class LoginPage extends StatelessWidget {
                 )
               ],
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(
-                  Icons.people,
-                  color: Colors.white,
-                  size: 64,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    label: Text('User'),
-                    border: OutlineInputBorder(),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Icon(
+                    Icons.people,
+                    color: AppColors.whiteColor,
+                    size: 64,
                   ),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    label: Text('Password'),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                  CustomTextfield(
+                    labelText: 'User',
+                  ),
+                  CustomTextfield(
+                    labelText: 'Password',
+                    obscureText: true,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.purpleColor,
+                    ),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
                     ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Login'),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Sing-up'),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Forgot password?'),
-                ),
-              ],
+                  OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: AppColors.purpleColor,
+                      ),
+                    ),
+                    child: Text(
+                      'Sing-up',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Forgot password?',
+                      style: TextStyle(
+                        color: AppColors.purpleColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

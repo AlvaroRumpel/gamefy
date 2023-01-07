@@ -18,5 +18,7 @@ class AppColors {
       const MaterialColor(0xFF1C1B1F, _primaryColor);
 
   static Color secondaryColor = const Color.fromRGBO(70, 59, 102, 1);
-  static Color terciaryColor = const Color.fromRGBO(41, 45, 65, 1);
+  static Color terciaryColor = const Color(0xff332D41);
+  static Color purpleColor = const Color(0xffD0BCFF);
+  static Color whiteColor = const Color(0xffE6E1E5);
 }
